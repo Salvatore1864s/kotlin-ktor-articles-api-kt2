@@ -1,3 +1,4 @@
+
 package com.example
 
 import kotlinx.serialization.Serializable
@@ -9,7 +10,20 @@ data class Article(
     val content: String
 )
 
-val articles = mutableListOf(
-    Article(1, "Kotlin", "Язык программирования"),
-    Article(2, "Ktor", "Фреймворк для серверов")
+@Serializable
+data class RegisterRequest(
+    val login: String,
+    val password: String
+)
+
+@Serializable
+data class LoginRequest(
+    val login: String,
+    val password: String
+)
+
+@Serializable
+data class AuthResponse(
+    val message: String,
+    val token: String? = null
 )
